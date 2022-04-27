@@ -1,0 +1,46 @@
+The SR-PSO is a metaheuristic algorithm that modifies the search of solutions based on the 
+Spectral Richness(SR) from the excitation signal applied to a dynamical system.
+
+The algorithm is coded on Matlab 2020a, but since the implementation uses a script that performs the dynamical simulation using the Euler integration method the program could be executed by Matlab 2015a and later versions.
+
+The implementation of the algorithm is on the file:
+
+"Spectral_Richness_PSO.m"
+
+It is just neccessary to open this file on Matlab and execute the script.
+
+////////////////////////////////////////////////////////////////////////
+
+Files:
+
+"Dynamical_simulation_ideal.m"
+"Dynamical_simulation_nonideal.m"
+
+Contain the numerical implementation of the dynamical system. The first one considers the ideal model used to test the solutions computed by the PSO and the second one is used to generate the initial data for the identification.
+
+The file "Dynamical_simulation_nonideal" could be not applied since the user posseses experimental data to perform the parameter identification.
+
+The file "Dynamical_simulation_ideal" could be modified to represent other class of dynamical systems and it also could be replaced with a simulation file of Simulink from Matlab, in that case the "sim()" function is applied as described on the script of the implementation of the algorithm.
+
+/////////////////////////////////////////////////////////////////////
+
+The following files contain functions required by the execution of the PSO algorithm:
+
+-"Spectral_Richness.m": Calculates the Spectral Richness of the reference signal.
+
+-"Evaluation_swarm.m": Evaluates the particles of the swarm on the ideal dynamical 
+model and computes the corresponding value of J.
+
+-"L_SR.m": Computes the value of weight for the global best solution based on the SR.
+
+-"P_SR.m": Computes the value of weight for the local best solution based on the SR.
+
+-"Velocity_estimation.m": Computes the velocity of the particles.
+
+-"Boundary_limit.m": Limits the velocity of the particles to keep solutions on the feasible set.
+
+-"Update_Pos.m": Updates the position of the particles in the swarm using the limited velocities.
+
+-"Update_LBP.m": Updates the local best position of the particles.
+
+
